@@ -148,13 +148,4 @@ class ScoreKeeperTest {
         Assertions.assertEquals(scoreKeeper.getScore(),expectedResult);
     }
 
-    @Test
-    void getScore() {
-        //Arrange
-
-        //Act
-
-        //Assert
-
-    }
 }
