@@ -54,7 +54,7 @@ class ScoreKeeperTest {
         String expectedResult = String.format("%03d", scoredPointsOfTeamA * 2)
                         + ":" + String.format("%03d", scoredPointsOfTeamB);
         //Act
-        for (int i = 0; i < scoredPointsOfTeamA; i++) scoreKeeper.scoreTeamA1();
+        for (int i = 0; i < scoredPointsOfTeamA; i++) scoreKeeper.scoreTeamA2();
         //Assert
         Assertions.assertEquals(scoreKeeper.getScore(),expectedResult);
     }
@@ -63,7 +63,7 @@ class ScoreKeeperTest {
     void scoreTeamA3_scoreFirstPoints() {
         //Arrange
         //Act
-        scoreKeeper.scoreTeamA2();
+        scoreKeeper.scoreTeamA3();
         //Assert
         Assertions.assertEquals(scoreKeeper.getScore(),"003:000");
     }
@@ -76,7 +76,7 @@ class ScoreKeeperTest {
         String expectedResult = String.format("%03d", scoredPointsOfTeamA * 3)
                 + ":" + String.format("%03d", scoredPointsOfTeamB);
         //Act
-        for (int i = 0; i < scoredPointsOfTeamA; i++) scoreKeeper.scoreTeamA1();
+        for (int i = 0; i < scoredPointsOfTeamA; i++) scoreKeeper.scoreTeamA3();
         //Assert
         Assertions.assertEquals(scoreKeeper.getScore(),expectedResult);
     }
@@ -87,7 +87,7 @@ class ScoreKeeperTest {
         //Act
         scoreKeeper.scoreTeamB1();
         //Assert
-        Assertions.assertEquals(scoreKeeper.getScore(),"000 :001");
+        Assertions.assertEquals(scoreKeeper.getScore(),"000:001");
     }
 
     @Test
