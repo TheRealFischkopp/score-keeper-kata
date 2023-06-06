@@ -82,36 +82,71 @@ class ScoreKeeperTest {
     }
 
     @Test
-    void scoreTeamB1() {
+    void scoreTeamB1_scoreFirstPoint() {
         //Arrange
-
         //Act
-
+        scoreKeeper.scoreTeamB1();
         //Assert
-
+        Assertions.assertEquals(scoreKeeper.getScore(),"000 :001");
     }
 
     @Test
-    void scoreTeamB2() {
+    void scoreTeamB1_scoreMultiplePoints() {
         //Arrange
+        int scoredPointsOfTeamA = 0;
+        int scoredPointsOfTeamB = (int) (Math.random() * 999);
 
+        String expectedResult = String.format("%03d", scoredPointsOfTeamA)
+                + ":" + String.format("%03d", scoredPointsOfTeamB);
         //Act
-
+        for (int i = 0; i < scoredPointsOfTeamB; i++) scoreKeeper.scoreTeamB1();
         //Assert
-
+        Assertions.assertEquals(scoreKeeper.getScore(),expectedResult);
     }
 
     @Test
-    void scoreTeamB3() {
+    void scoreTeamB2_scoreFirstPoints() {
         //Arrange
-
         //Act
-
+        scoreKeeper.scoreTeamB2();
         //Assert
-
+        Assertions.assertEquals(scoreKeeper.getScore(),"000:002");
     }
 
+    @Test
+    void scoreTeamB2_scoreMultiplePoints() {
+        //Arrange
+        int scoredPointsOfTeamA = 0;
+        int scoredPointsOfTeamB = (int) (Math.random() * 499);
+        String expectedResult = String.format("%03d", scoredPointsOfTeamA)
+                + ":" + String.format("%03d", scoredPointsOfTeamB * 2);
+        //Act
+        for (int i = 0; i < scoredPointsOfTeamB; i++) scoreKeeper.scoreTeamB2();
+        //Assert
+        Assertions.assertEquals(scoreKeeper.getScore(),expectedResult);
+    }
 
+    @Test
+    void scoreTeamB3_scoreFirstPoints() {
+        //Arrange
+        //Act
+        scoreKeeper.scoreTeamB3();
+        //Assert
+        Assertions.assertEquals(scoreKeeper.getScore(),"000:003");
+    }
+
+    @Test
+    void scoreTeamB3_scoreMultiplePoints() {
+        //Arrange
+        int scoredPointsOfTeamA = 0;
+        int scoredPointsOfTeamB = (int) (Math.random() * 333);
+        String expectedResult = String.format("%03d", scoredPointsOfTeamA)
+                + ":" + String.format("%03d", scoredPointsOfTeamB * 3);
+        //Act
+        for (int i = 0; i < scoredPointsOfTeamB; i++) scoreKeeper.scoreTeamB3();
+        //Assert
+        Assertions.assertEquals(scoreKeeper.getScore(),expectedResult);
+    }
 
     @Test
     void getScore() {
